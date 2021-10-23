@@ -1,7 +1,7 @@
 import { userAgent, parameterChecker, JSType, errorBuilder } from '../common/utils';
 
 // is linux system
-export const isLinux = (ua: string = userAgent) => {
+export const isLinux = (ua: string = userAgent): boolean => {
   if (!parameterChecker(ua, JSType.string)) {
     errorBuilder('isLinux: ua should not be empty');
   }

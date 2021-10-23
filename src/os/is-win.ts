@@ -1,7 +1,7 @@
 import { userAgent, parameterChecker, JSType, errorBuilder } from '../common/utils';
 
 // is windows && windows 32
-export const isWin32 = (ua: string = userAgent) => {
+export const isWin32 = (ua: string = userAgent): boolean => {
   if (!parameterChecker(ua, JSType.string)) {
     errorBuilder('isWin32: ua should not be empty');
   }
@@ -13,7 +13,7 @@ export const isWin32 = (ua: string = userAgent) => {
 };
 
 // is windows && windows 64
-export const isWin64 = (ua: string = userAgent) => {
+export const isWin64 = (ua: string = userAgent): boolean => {
   if (!parameterChecker(ua, JSType.string)) {
     errorBuilder('isWin64: ua should not be empty');
   }
@@ -25,7 +25,7 @@ export const isWin64 = (ua: string = userAgent) => {
 };
 
 // is windows system
-export const isWin = (ua: string = userAgent) => {
+export const isWin = (ua: string = userAgent): boolean => {
   if (!parameterChecker(ua, JSType.string)) {
     errorBuilder('isWin: ua should not be empty');
   }

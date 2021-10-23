@@ -1,6 +1,6 @@
 import { userAgent, parameterChecker, JSType, errorBuilder } from '../common/utils';
 
-export const isSafari = (ua: string = userAgent) => {
+export const isSafari = (ua: string = userAgent): boolean => {
   if (!parameterChecker(ua, JSType.string)) {
     errorBuilder('isSafari: ua should not be empty');
   }

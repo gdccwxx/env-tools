@@ -1,7 +1,7 @@
 import { userAgent, parameterChecker, JSType, errorBuilder } from '../common/utils';
 
 // is ios system
-export const isIOS = (ua: string = userAgent) => {
+export const isIOS = (ua: string = userAgent): boolean => {
   if (!parameterChecker(ua, JSType.string)) {
     errorBuilder('isIOS: ua should not be empty');
   }

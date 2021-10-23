@@ -12,7 +12,7 @@ const isMimeTypesHaveValue = (mimeTypes: MimeTypeArray, keyOpt: keyof MimeType, 
 
 // 360 browser is a special browser
 // should use `deprecated` to distinct
-export const is360Browser = (_mimeTypes: MimeTypeArray = mimeTypes) => {
+export const is360Browser = (_mimeTypes: MimeTypeArray = mimeTypes): boolean => {
   if (!parameterChecker(_mimeTypes, JSType.object)) {
     errorBuilder('is360Browser: mimeTypes should not be empty', [JSON.stringify(_mimeTypes)]);
   }
