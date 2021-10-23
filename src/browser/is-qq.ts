@@ -5,7 +5,7 @@ export const isQQBrowser = (ua: string = userAgent) => {
     errorBuilder('isQQBrowser: ua should not be empty');
   }
 
-  return /qqbrowser/.test(ua.toLowerCase());
+  return /qqbrowser/i.test(ua);
 };
 
 export default isQQBrowser;

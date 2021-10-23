@@ -5,9 +5,8 @@ export const isSoGouBrowser = (ua: string = userAgent) => {
     errorBuilder('isSoGouBrowser: ua should not be empty');
   }
 
-  const lowerUA = ua.toLowerCase();
-  const haveSeUAMark = /se 2.x/.test(lowerUA);
-  const haveMetasrMark = /metasr/.test(lowerUA);
+  const haveSeUAMark = /se 2.x/i.test(ua);
+  const haveMetasrMark = /metasr/i.test(ua);
 
   return haveSeUAMark || haveMetasrMark;
 };
