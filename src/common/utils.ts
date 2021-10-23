@@ -2,6 +2,10 @@ export const userAgent = navigator.userAgent;
 
 export const mimeTypes = navigator?.mimeTypes;
 
+export const appName = navigator?.appName;
+
+export const appVersion = navigator?.appVersion;
+
 export enum JSType {
   boolean = 'boolean',
   null = 'null',
