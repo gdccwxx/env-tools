@@ -1,4 +1,4 @@
-export const userAgent = navigator.userAgent;
+export const userAgent = navigator?.userAgent;
 
 export const mimeTypes = navigator?.mimeTypes;
 
