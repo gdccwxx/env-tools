@@ -1,4 +1,6 @@
-export const userAgent = navigator.userAgent.toLowerCase();
+export const userAgent = navigator.userAgent;
+
+export const mimeTypes = navigator?.mimeTypes;
 
 export enum JSType {
   boolean = 'boolean',

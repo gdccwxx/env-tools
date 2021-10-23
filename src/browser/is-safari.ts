@@ -2,11 +2,11 @@ import { userAgent, parameterChecker, JSType, errorBuilder } from '../common/uti
 
 export const isSafari = (ua: string = userAgent) => {
   if (!parameterChecker(ua, JSType.string)) {
-    errorBuilder('ua should not be empty');
+    errorBuilder('isSafari: ua should not be empty');
   }
 
-  const safariMark = /safari/.test(ua);
-  const chromeMark = /chrome/.test(ua);
+  const safariMark = /Safari/.test(ua);
+  const chromeMark = /Chrome/.test(ua);
   
   // because qq, 360 ... browsers have safari mark
   // but they also have chrome mark
