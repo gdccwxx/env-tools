@@ -1,0 +1,32 @@
+{
+  "name": "env-tools",
+  "version": "1.0.0",
+  "description": "a tools can distinct env and opt env",
+  "main": "./src/index.ts",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack",
+    "dev:watch": "cross-env NODE_ENV=development webpack --watch",
+    "build": "cross-env NODE_ENV=production webpack",
+    "release": "cross-env NODE_ENV=production RELEASE_TYPE=release webpack && yarn doc && yarn changelog",
+    "lint": "eslint ./src --ext .ts,.tsx",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "commit": "git-cz",
+    "test": "jest --coverage",
+    "doc": "typedoc"
+  },
+  "repository": "https://github.com/gdccwxx/env-tools.git",
+  "author": "gdccwxx <gdccwxx@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "cross-env": "^7.0.3",
+    "html-webpack-plugin": "^5.4.0",
+    "ts-loader": "^9.2.6",
+    "webpack": "^5.59.1",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.3.1"
+  },
+  "dependencies": {
+    "typescript": "^4.4.4"
+  }
+}
