@@ -1,14 +1,16 @@
-import { userAgent, appName, appVersion, parameterChecker, JSType, errorBuilder } from '../common/utils';
+import {
+ userAgent, appName, appVersion, parameterChecker, JSType, errorBuilder, 
+} from '../common/utils';
 
 // split version and replace MSIE
-const _parsedAppVersion = (_appVersion: string = appVersion): number => {
+const parseIEVersion = (_appVersion: string = appVersion): number => {
   const versionChunk = _appVersion.split(';')[1].replace(/[ ]/g, '').replace('MSIE', '');
 
   return parseInt(versionChunk, 10);
 };
 
 // is Microsoft Internet Explorer
-const _isMIE = (_appName: string = appName): boolean => _appName === 'Microsoft Internet Explorer';
+const isMIE = (_appName: string = appName): boolean => _appName === 'Microsoft Internet Explorer';
 
 /**
  * browser is ie and less than ie 9
@@ -21,9 +23,9 @@ export const isLtIE9 = (_appName: string = appName, _appVersion: string = appVer
   // it can't be old browser
   // so is not ie
   if (!_appName || !_appVersion) return false;
-  const parsedVersion = _parsedAppVersion(_appVersion);
+  const parsedVersion = parseIEVersion(_appVersion);
 
-  return _isMIE(_appName) && (parsedVersion < 9);
+  return isMIE(_appName) && (parsedVersion < 9);
 };
 
 /**
@@ -37,9 +39,9 @@ export const isIE9 = (_appName: string = appName, _appVersion: string = appVersi
   // it can't be old browser
   // so is not ie
   if (!_appName || !_appVersion) return false;
-  const parsedVersion = _parsedAppVersion(_appVersion);
+  const parsedVersion = parseIEVersion(_appVersion);
 
-  return _isMIE(_appName) && (parsedVersion === 9);
+  return isMIE(_appName) && (parsedVersion === 9);
 };
 
 /**
@@ -54,9 +56,9 @@ export const isIE10 = (_appName: string = appName, _appVersion: string = appVers
   // so is not ie
   if (!_appName || !_appVersion) return false;
 
-  const parsedVersion = _parsedAppVersion(_appVersion);
+  const parsedVersion = parseIEVersion(_appVersion);
 
-  return _isMIE(_appName) && (parsedVersion === 10);
+  return isMIE(_appName) && (parsedVersion === 10);
 };
 
 /**

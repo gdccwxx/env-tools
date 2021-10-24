@@ -28,7 +28,7 @@ export enum JSType {
 export const parameterChecker = (
   value: unknown,
   type: JSType,
-  couldBeEmpty: boolean = false,
+  couldBeEmpty = false,
 ): boolean => {
   // check null
   if (type === JSType.null) {
@@ -64,7 +64,7 @@ export const parameterChecker = (
       && value !== null
       && value.toString() === '[object Object]';
 
-    return isObject && (couldBeEmpty ? true : Object.values(value).length !== 0)
+    return isObject && (couldBeEmpty ? true : Object.values(value).length !== 0);
   }
 
   // normal check by typeof object & symbol
@@ -76,7 +76,7 @@ export const parameterChecker = (
  * @param message error msg
  * @param parameters parameters
  */
-export const errorBuilder = (message: string, parameters?: any[]) => {
+export const errorBuilder = (message: string, parameters?: unknown[]) => {
   let errMsg = `message: ${message}`;
 
   if (parameters && parameters.length > 0) {
@@ -93,9 +93,8 @@ export const errorBuilder = (message: string, parameters?: any[]) => {
  * @param ua `navigator.userAgent`
  * @returns version(string)
  */
-export const parseVersionFromUserAgent = (regexp: RegExp, ua: string = userAgent): string => {
-  return ua.match(regexp)!
-    .toString()
+export const parseVersionFromUserAgent = (regexp: RegExp, ua: string = userAgent): string | undefined => {
+  return ua.match(regexp)?.toString()
     .replace(/[^0-9|_.]/g, '')
     .replace(/_/g, '.');
 };

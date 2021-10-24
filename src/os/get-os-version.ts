@@ -1,8 +1,10 @@
 import { userAgent, parameterChecker, errorBuilder, JSType, parseVersionFromUserAgent } from 'src/common/utils';
-import { getOsType, osType } from './get-os-type';
-import { isWin2000, isWin7, isWin8, isWin81, isWinXP, isWinVista, isWin10, isWin2003 } from './is-win';
+import { getOsType, OsType } from './get-os-type';
+import {
+ isWin2000, isWin7, isWin8, isWin81, isWinXP, isWinVista, isWin10, isWin2003, 
+} from './is-win';
 
-export enum winVersion {
+export enum WinVersion {
   win2000 = '2000',
   winXP = 'xp',
   win2003 = '2003',
@@ -11,13 +13,13 @@ export enum winVersion {
   win8 = '8',
   win81 = '8.1',
   win10 = '10',
-};
+}
 
 
 /**
- * get os type
+ * get os version
  * @param ua userAgent
- * @returns enum `osType`
+ * @returns string version | `WinVersion` | 'unknown' 
  */
 export const getOsVersion = (ua: string = userAgent): string => {
   const type = getOsType(ua);
@@ -26,33 +28,33 @@ export const getOsVersion = (ua: string = userAgent): string => {
   }
 
   let version = 'unknown';
-  switch(type) {
-    case osType.android:
-      version = parseVersionFromUserAgent(/android [\d._]+/g, ua);
+  switch (type) {
+    case OsType.android:
+      version = parseVersionFromUserAgent(/android [\d._]+/g, ua) ?? version;
       break;
-    case osType.ios:
-      version = parseVersionFromUserAgent(/os [\d._]+/g, ua);
+    case OsType.ios:
+      version = parseVersionFromUserAgent(/os [\d._]+/g, ua) ?? version;
       break;
-    case osType.mac:
-      version = parseVersionFromUserAgent(/os x [\d._]+/g, ua);
+    case OsType.mac:
+      version = parseVersionFromUserAgent(/os x [\d._]+/g, ua) ?? version;
       break;
-    case osType.win:
+    case OsType.win:
       if (isWin2000(ua)) {
-        version = winVersion.win2000;
+        version = WinVersion.win2000;
       } else if (isWin7(ua)) {
-        version = winVersion.win7;
+        version = WinVersion.win7;
       } else if (isWin8(ua)) {
-        version = winVersion.win8;
+        version = WinVersion.win8;
       } else if (isWin81(ua)) {
-        version = winVersion.win81;
+        version = WinVersion.win81;
       } else if (isWinXP(ua)) {
-        version = winVersion.winXP;
+        version = WinVersion.winXP;
       } else if (isWinVista(ua)) {
-        version = winVersion.winVista;
+        version = WinVersion.winVista;
       } else if (isWin10(ua)) {
-        version = winVersion.win10;
+        version = WinVersion.win10;
       } else if (isWin2003(ua)) {
-        version = winVersion.win2003;
+        version = WinVersion.win2003;
       }
       break;
   }

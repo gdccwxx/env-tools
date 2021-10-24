@@ -6,10 +6,10 @@ export const isWin32 = (ua: string = userAgent): boolean => {
     errorBuilder('isWin32: ua should not be empty');
   }
 
-  const isWin32 = /win32/i.test(ua);
-  const isWow32 = /wow32/i.test(ua);
+  const win32Mark = /win32/i.test(ua);
+  const wow32Mark = /wow32/i.test(ua);
 
-  return isWin32 || isWow32;
+  return win32Mark || wow32Mark;
 };
 
 // is windows && windows 64
@@ -18,10 +18,10 @@ export const isWin64 = (ua: string = userAgent): boolean => {
     errorBuilder('isWin64: ua should not be empty');
   }
 
-  const isWin64 = /win64/i.test(ua);
-  const isWow64 = /wow64/i.test(ua);
+  const win64Mark = /win64/i.test(ua);
+  const wow64Mark = /wow64/i.test(ua);
 
-  return isWin64 || isWow64;
+  return win64Mark || wow64Mark;
 };
 
 // is windows system
@@ -31,7 +31,7 @@ export const isWin = (ua: string = userAgent): boolean => {
   }
 
   const isWindows = /windows/i.test(ua);
-  return isWin32(ua) || isWin64(ua) || isWindows;
+  return isWindows || isWin32(ua) || isWin64(ua);
 };
 
 // is windows 2000

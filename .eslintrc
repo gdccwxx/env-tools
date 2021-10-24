@@ -1,0 +1,47 @@
+{
+  "extends": [
+    "airbnb-typescript/base",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "import"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jasmine": true
+  },
+  "parserOptions": {
+    "createDefaultProgram": true,
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "arrow-parens": 0,
+    "class-methods-use-this": 0,
+    "no-bitwise": 0,
+    "no-console": 0,
+    "no-plusplus": [2, { "allowForLoopAfterthoughts": true }],
+    "no-unused-vars": 1,
+    "no-underscore-dangle": 0,
+    "no-unused-expressions": [2, { "allowShortCircuit": true, "allowTernary": true }],
+    "no-shadow": 0,
+    "max-len": [2, { "code": 120 }],
+    "import/no-cycle": [0, { "maxDepth": 1 }],
+    "import/no-extraneous-dependencies": 0,
+    "no-use-before-define": ["error", { "functions": false }],
+    "import/prefer-default-export": 0,
+    "@typescript-eslint/indent": "off",
+    "@typescript-eslint/no-use-before-define": ["error", { "functions": false }],
+    "object-curly-newline": [2, {
+      "ImportDeclaration": {
+        "multiline": true,
+        "minProperties": 6
+      }
+    }],
+    "prefer-promise-reject-errors": 0
+  },
+  "parser": "@typescript-eslint/parser"
+}

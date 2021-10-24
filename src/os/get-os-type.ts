@@ -5,32 +5,32 @@ import isLinux from './is-linux';
 import isMac from './is-mac';
 import isWin from './is-win';
 
-export enum osType {
+export enum OsType {
   android = 'android',
   ios = 'ios',
   linux = 'linux',
   mac = 'mac',
   win = 'win',
   unknown = 'unknown',
-};
+}
 
 /**
  * get os type
  * @param ua userAgent
- * @returns enum `osType`
+ * @returns enum `OsType`
  */
-export const getOsType = (ua: string = userAgent): osType => {
-  if (isWin(ua)) return osType.win;
+export const getOsType = (ua: string = userAgent): OsType => {
+  if (isWin(ua)) return OsType.win;
 
-  if (isMac(ua)) return osType.mac;
+  if (isMac(ua)) return OsType.mac;
 
-  if (isAndroid(ua)) return osType.android;
+  if (isAndroid(ua)) return OsType.android;
 
-  if (isIOS(ua)) return osType.ios;
+  if (isIOS(ua)) return OsType.ios;
 
-  if (isLinux(ua)) return osType.linux;
+  if (isLinux(ua)) return OsType.linux;
 
-  return osType.unknown;
+  return OsType.unknown;
 };
 
 export default getOsType;
