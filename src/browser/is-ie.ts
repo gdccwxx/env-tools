@@ -69,7 +69,7 @@ export const isIE = (ua: string = userAgent): boolean => {
     errorBuilder('isIE: ua should not be empty');
   }
 
-  return /Trident/.test(ua);
+  return /trident/i.test(ua);
 };
 
 export default isIE;

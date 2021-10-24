@@ -5,7 +5,7 @@ export const isEdge = (ua: string = userAgent): boolean => {
     errorBuilder('isEdge: ua should not be empty');
   }
 
-  return /Edge/.test(ua);
+  return /edge/i.test(ua);
 };
 
 export default isEdge;

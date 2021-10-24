@@ -5,7 +5,7 @@ export const isOpera = (ua: string = userAgent): boolean => {
     errorBuilder('isOpera: ua should not be empty');
   }
 
-  return /Opera/.test(ua);
+  return /opera/i.test(ua);
 };
 
 export default isOpera;

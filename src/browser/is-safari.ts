@@ -5,8 +5,8 @@ export const isSafari = (ua: string = userAgent): boolean => {
     errorBuilder('isSafari: ua should not be empty');
   }
 
-  const safariMark = /Safari/.test(ua);
-  const chromeMark = /Chrome/.test(ua);
+  const safariMark = /safari/i.test(ua);
+  const chromeMark = /chrome/i.test(ua);
   
   // because qq, 360 ... browsers have safari mark
   // but they also have chrome mark

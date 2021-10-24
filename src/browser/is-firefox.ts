@@ -5,7 +5,7 @@ export const isFirefox = (ua: string = userAgent): boolean => {
     errorBuilder('isFirefox: ua should not be empty');
   }
 
-  return /Firefox/.test(ua);
+  return /firefox/i.test(ua);
 };
 
 export default isFirefox;
