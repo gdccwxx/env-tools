@@ -1,3 +1,4 @@
+export * from './is-chrome';
 export * from './is-safari';
 export * from './is-firefox';
 export * from './is-edge';
