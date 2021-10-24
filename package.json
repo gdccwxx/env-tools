@@ -12,7 +12,8 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "commit": "git-cz",
     "test": "echo 'test'",
-    "doc": "typedoc"
+    "doc": "typedoc",
+    "prepare": "husky install"
   },
   "repository": "https://github.com/gdccwxx/env-tools.git",
   "author": "gdccwxx <gdccwxx@gmail.com>",
@@ -47,17 +48,6 @@
     "commitizen": {
       "path": "node_modules/cz-conventional-changelog"
     }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,js}": [
-      "eslint"
-    ]
   },
   "keywords": [
     "env",
