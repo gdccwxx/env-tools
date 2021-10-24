@@ -85,3 +85,17 @@ export const errorBuilder = (message: string, parameters?: any[]) => {
 
   throw new Error(errMsg);
 };
+
+
+/**
+ * get version from userAgent
+ * @param regexp version regexp
+ * @param ua `navigator.userAgent`
+ * @returns version(string)
+ */
+export const parseVersionFromUserAgent = (regexp: RegExp, ua: string = userAgent): string => {
+  return ua.match(regexp)!
+    .toString()
+    .replace(/[^0-9|_.]/g, '')
+    .replace(/_/g, '.');
+};

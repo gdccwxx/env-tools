@@ -1,4 +1,4 @@
-import { userAgent, parameterChecker, errorBuilder, JSType } from 'src/common/utils';
+import { userAgent, parameterChecker, errorBuilder, JSType, parseVersionFromUserAgent } from 'src/common/utils';
 import { getOsType, osType } from './get-os-type';
 import { isWin2000, isWin7, isWin8, isWin81, isWinXP, isWinVista, isWin10, isWin2003 } from './is-win';
 
@@ -13,12 +13,6 @@ export enum winVersion {
   win10 = '10',
 };
 
-const _versionReplacer = (regexp: RegExp, ua: string = userAgent): string => {
-  return ua.match(regexp)!
-    .toString()
-    .replace(/[^0-9|_.]/g, "")
-    .replace(/_/g, ".");
-};
 
 /**
  * get os type
@@ -34,13 +28,13 @@ export const getOsVersion = (ua: string = userAgent): string => {
   let version = 'unknown';
   switch(type) {
     case osType.android:
-      version = _versionReplacer(/android [\d._]+/g, ua);
+      version = parseVersionFromUserAgent(/android [\d._]+/g, ua);
       break;
     case osType.ios:
-      version = _versionReplacer(/os [\d._]+/g, ua);
+      version = parseVersionFromUserAgent(/os [\d._]+/g, ua);
       break;
     case osType.mac:
-      version = _versionReplacer(/os x [\d._]+/g, ua);
+      version = parseVersionFromUserAgent(/os x [\d._]+/g, ua);
       break;
     case osType.win:
       if (isWin2000(ua)) {
