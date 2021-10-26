@@ -1,8 +1,12 @@
 {
-  "name": "env-tools",
+  "name": "browser-env-tools",
   "version": "1.0.0",
-  "description": "a tools can distinct env and opt env",
-  "main": "./src/index.ts",
+  "description": "A tools can distinct env and opt by same way",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack",
     "dev:watch": "cross-env NODE_ENV=development webpack --watch",
@@ -33,7 +37,7 @@
     "eslint-plugin-import": "^2.25.2",
     "filemanager-webpack-plugin": "^6.1.7",
     "html-webpack-plugin": "^5.4.0",
-    "husky": "^7.0.0",
+    "husky": "^7.0.4",
     "pre-commit": "^1.2.2",
     "prettier": "2.4.1",
     "ts-loader": "^9.2.6",
