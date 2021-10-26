@@ -1,6 +1,8 @@
 
 import { userAgent } from '../common/utils';
-import { isWin, isMac, isLinux } from 'src';
+import { isLinux } from './is-linux';
+import { isMac } from './is-mac';
+import { isWin } from './is-win';
 
 /**
  * is desktop

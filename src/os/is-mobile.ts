@@ -1,6 +1,7 @@
 
 import { userAgent } from '../common/utils';
-import { isAndroid, isIOS } from 'src';
+import { isAndroid } from './is-android';
+import { isIOS } from './is-ios';
 
 /**
  * is mobile
